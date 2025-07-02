@@ -560,8 +560,6 @@ END;
 
 DELIMITER ;
 
--- Procedure
-
 -- 6. Okidač za sprječavanje poreklapanja rezervacija za isto vozilo
 DELIMITER //
 
@@ -611,15 +609,9 @@ DELIMITER ;
 
 -- PROCEDURE
 
--- 1. Procedura koji uzima ID vozila i vraća njegov status dostupnosti
-DELIMITER //
-CREATE PROCEDURE GetVehicleAvailability(IN vehicle_id INT)
-BEGIN
-    SELECT Status FROM Vozilo WHERE ID_vozila = vehicle_id;
-END //
-DELIMITER ;
 
--- 2. Procedura za izradu nove rezervacije
+
+-- 1. Procedura za izradu nove rezervacije
 
 DELIMITER //
 CREATE PROCEDURE CreateReservation(
@@ -647,7 +639,7 @@ END //
 DELIMITER ;
 
 
--- 3. Postupak za dobivanje povijesti najma od strane korisnika
+-- 2. Postupak za dobivanje povijesti najma od strane korisnika
 DELIMITER //
 CREATE PROCEDURE GetCustomerRentalHistory(IN kupac_id INT)
 BEGIN
@@ -658,7 +650,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- 4. Procedura za dovođenje vozila na održavanje
+-- 3. Procedura za dovođenje vozila na održavanje
 
 DELIMITER //
 
@@ -674,7 +666,7 @@ END;
 
 DELIMITER ;
 
--- 5. Procedura za dobivanje ukupnog prihoda generiranog određenim vozilom
+-- 4. Procedura za dobivanje ukupnog prihoda generiranog određenim vozilom
 
 DELIMITER //
 
